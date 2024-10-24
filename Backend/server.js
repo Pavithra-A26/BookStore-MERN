@@ -1,6 +1,9 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const authroutes = require('./Routes/Auth.js');
+
+
 require('dotenv').config();
 
 const app = express();
@@ -12,6 +15,11 @@ mongoose.connect(MONGOURL).then(() => {
     console.log('Connected to MongoDB')
 })
 .catch((error) => console.error('Failed to connect to MongoDB:', error));
+
+
+//Routes
+app.use('/auth',authroutes);
+
 
 //port
 const PORT = process.env.PORT || 5000;

@@ -1,10 +1,10 @@
-
+import Layout from "./Layout/Layout";
 
 
 function App() {
   return (
     <>
-      <h1>bookstore</h1>
+      <Layout/>
     </>
   );
 }

@@ -1,0 +1,26 @@
+/* Basic styling for navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 20px;
+    background-color: #071739;
+    color: #CDD5DB;
+}
+  
+.navbar-logo h2 {
+    margin: 0;
+    color: #f0f3f5;
+    font-size: 1.5rem;
+}
+  
+.navbar-links a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+}
+  
+.navbar-links a:hover {
+    color: #ddd;
+}
+  

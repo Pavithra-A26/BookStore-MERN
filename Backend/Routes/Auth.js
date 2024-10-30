@@ -1,13 +1,19 @@
 const express = require('express');
 const User = require('../Models/User.js');
+const bcrypt = require('bcrypt');
 const router = express.Router();
 
 //Register
 router.post('/register',async(req,res) => {
     try{
         const {username,email,password} = req.body;
-        const user = new User({username,email,password});
+        // Hash password
+        const hashedPassword = await bcrypt.hash(password, 10);
+
+        // Save user with hashed password
+        const user = new User({ username, email, password: hashedPassword });
         await user.save();
+
         res.status(201).json({
             message:'User registration success'
         });
@@ -29,7 +35,9 @@ router.post('/login',async(req,res) =>{
                 message: 'User not found' 
             });
         }
-        if (user.password !== password) {
+        // Compare password
+        const isPasswordValid = await bcrypt.compare(password, user.password);
+        if (!isPasswordValid) {
             return res.status(400).json({ 
                 message: 'Invalid credentials' 
             });

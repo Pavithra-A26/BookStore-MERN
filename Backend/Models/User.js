@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const bcrypt = require('bcrypt');
 
 const UserSchema = new mongoose.Schema({
     username:{
@@ -8,7 +7,7 @@ const UserSchema = new mongoose.Schema({
         unique:true
     },
     email:{
-        type:Email,
+        type: String,
         required:true,
         unique:true
     },

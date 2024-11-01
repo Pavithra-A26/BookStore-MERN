@@ -1,0 +1,50 @@
+/* Products.css */
+
+.product-list {
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap to the next line */
+    justify-content: space-between; /* Space out items */
+    padding: 20px; /* Add some padding around the list */
+    list-style-type: none; /* Remove default list styles */
+}
+
+.product-list li {
+    flex: 1 1 30%; /* Allow 3 items per row with flexible width */
+    margin: 15px; /* Space between items */
+    border: 1px solid #ddd; /* Border around each product */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    overflow: hidden; /* Hide overflow for rounded corners */
+    transition: transform 0.3s; /* Smooth transition for hover effect */
+}
+
+.product-list li:hover {
+    transform: translateY(-5px); /* Slight lift on hover */
+}
+
+.b1 {
+    padding: 15px; /* Padding inside each product item */
+    text-align: center; /* Center-align text */
+}
+
+.mong {
+    width: 100%; /* Make the image full width */
+    height: auto; /* Maintain aspect ratio */
+    max-height: 200px; /* Optional max height for images */
+    object-fit: cover; /* Cover the area without distortion */
+}
+
+.d-name {
+    font-size: 1.2rem; /* Increase font size for the product name */
+    margin: 10px 0; /* Margin around the name */
+}
+
+.d-price {
+    font-size: 1rem; /* Font size for price */
+    color: #4caf50; /* Green color for price */
+}
+
+.d-des {
+    font-size: 0.9rem; /* Font size for description */
+    color: #555; /* Darker color for description */
+}

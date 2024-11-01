@@ -17,7 +17,7 @@ const Login = () => {
     const handleSubmit = async (e) => {
       e.preventDefault();
       try {
-        const response = await fetch('/auth/login', {
+        const response = await fetch('http://localhost:5000/auth/login', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -27,7 +27,7 @@ const Login = () => {
         const data = await response.json();
         if (response.ok) {
           alert(data.message);
-          // Optionally, you could save user data in local storage or state for session handling
+         
         } else {
           alert(data.message || 'Login failed');
         }

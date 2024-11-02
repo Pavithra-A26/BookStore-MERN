@@ -1,6 +1,7 @@
 import React,{ useState }  from 'react'
 import Layout from '../Layout/Layout'
 import '../Styles/register.css'
+import { useNavigate } from 'react-router-dom'; 
 
 const Register = () => {
 
@@ -10,6 +11,8 @@ const Register = () => {
     password: ''
   });
 
+  const navigate = useNavigate();
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -18,7 +21,7 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('/auth/register', {
+      const response = await fetch('http://localhost:5000/auth/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -28,6 +31,7 @@ const Register = () => {
       const data = await response.json();
       if (response.ok) {
         alert(data.message);
+        navigate('/login');
       } else {
         alert(data.message || 'Registration failed');
       }

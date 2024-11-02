@@ -1,0 +1,71 @@
+/* General container for the products */
+.product-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    list-style: none;
+    /* padding: 0; */
+    padding-left: 6%;
+    margin: 20px 0;
+}
+
+
+.b1 {
+    background-color: #f4f4f4;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    padding: 15px;
+    text-align: center;
+    width: 250px;
+    height:450px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.b1:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Styling for product images */
+.d-pic {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+/* Styling for product name */
+.d-name {
+    font-size: 20px;
+    color: #071739;
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+/* Styling for product price */
+.d-price {
+    font-size: 18px;
+    color: #28a745;
+    margin: 8px 0;
+}
+
+/* Styling for product description */
+.d-des {
+    font-size: 14px;
+    color: #666;
+    margin: 10px 0 15px;
+}
+
+/* Styling for the icons */
+.icon {
+    font-size: 24px;
+    margin: 0 8px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.icon:hover {
+    color: #28a745;
+}

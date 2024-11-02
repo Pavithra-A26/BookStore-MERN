@@ -1,6 +1,7 @@
 import React , {useState} from 'react'
 import Layout from '../Layout/Layout'
 import '../Styles/register.css'
+import { useNavigate } from 'react-router-dom'; 
 
 const Login = () => {
  
@@ -9,6 +10,8 @@ const Login = () => {
       password: ''
     });
   
+    const navigate = useNavigate();
+    
     const handleChange = (e) => {
       const { name, value } = e.target;
       setFormData({ ...formData, [name]: value });
@@ -17,7 +20,7 @@ const Login = () => {
     const handleSubmit = async (e) => {
       e.preventDefault();
       try {
-        const response = await fetch('/auth/login', {
+        const response = await fetch('http://localhost:5000/auth/login', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -27,7 +30,8 @@ const Login = () => {
         const data = await response.json();
         if (response.ok) {
           alert(data.message);
-          // Optionally, you could save user data in local storage or state for session handling
+          navigate('/');
+         
         } else {
           alert(data.message || 'Login failed');
         }

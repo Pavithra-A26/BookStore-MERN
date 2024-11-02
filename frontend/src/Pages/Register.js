@@ -1,6 +1,7 @@
 import React,{ useState }  from 'react'
 import Layout from '../Layout/Layout'
 import '../Styles/register.css'
+import { useNavigate } from 'react-router-dom'; 
 
 const Register = () => {
 
@@ -9,6 +10,8 @@ const Register = () => {
     email: '',
     password: ''
   });
+
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -28,6 +31,7 @@ const Register = () => {
       const data = await response.json();
       if (response.ok) {
         alert(data.message);
+        navigate('/login');
       } else {
         alert(data.message || 'Registration failed');
       }

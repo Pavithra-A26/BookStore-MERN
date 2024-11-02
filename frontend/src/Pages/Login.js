@@ -1,6 +1,7 @@
 import React , {useState} from 'react'
 import Layout from '../Layout/Layout'
 import '../Styles/register.css'
+import { useNavigate } from 'react-router-dom'; 
 
 const Login = () => {
  
@@ -9,6 +10,8 @@ const Login = () => {
       password: ''
     });
   
+    const navigate = useNavigate();
+    
     const handleChange = (e) => {
       const { name, value } = e.target;
       setFormData({ ...formData, [name]: value });
@@ -27,6 +30,7 @@ const Login = () => {
         const data = await response.json();
         if (response.ok) {
           alert(data.message);
+          navigate('/');
          
         } else {
           alert(data.message || 'Login failed');

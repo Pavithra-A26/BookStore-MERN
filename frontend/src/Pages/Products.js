@@ -24,6 +24,22 @@ useEffect(()=>{
   } 
   fetchData()
 },[])
+
+const addToCart = async (product) => {
+  try {
+    const response = await axios.post('http://127.0.0.1:5000/api/addtocart', {
+      name: product.name,
+      price: product.price,
+      image: product.image,
+    });
+    console.log('Added to cart:', response.data);
+    alert(`${product.name} has been added to your cart!`);
+  } catch (error) {
+    console.log('Error adding to cart', error);
+    alert('Failed to add product to cart');
+  }
+};
+
   return (
     <Layout>
       <h1>Products page</h1>
@@ -35,7 +51,7 @@ useEffect(()=>{
                             <h2 className='d-name'>{d.name}</h2>
                             <p className='d-price'>₹{d.price}</p>
                             <p className='d-des'>{d.description}</p>
-                            <FontAwesomeIcon className='icon' icon={faCartShopping} style={{ color: '#071739' }} />
+                            <FontAwesomeIcon className='icon' icon={faCartShopping} style={{ color: '#071739' }} onClick={() => addToCart(d)}/>
                             <FontAwesomeIcon className='icon' icon={faHeart} style={{ color: '#071739' }} />
                         </div>
                     </li>

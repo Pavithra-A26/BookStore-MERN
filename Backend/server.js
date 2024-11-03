@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const authroutes = require('./Routes/Auth.js');
 const productRoutes = require('./Routes/Products.js');
+const cartRoutes = require('./Routes/CartRoutes.js')
 
 
 require('dotenv').config();
@@ -10,6 +11,7 @@ require('dotenv').config();
 const app = express();
 app.use(cors());
 app.use(express.json());
+
 
 //database
 const MONGOURL = "mongodb://localhost:27017/bookstore";
@@ -22,6 +24,7 @@ mongoose.connect(MONGOURL).then(() => {
 //Routes
 app.use('/auth',authroutes);
 app.use('/api',productRoutes);
+app.use('/api',cartRoutes);
 
 
 //port

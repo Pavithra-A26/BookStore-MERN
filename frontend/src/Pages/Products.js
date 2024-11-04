@@ -40,6 +40,21 @@ const addToCart = async (product) => {
   }
 };
 
+const addToWishList = async (product) => {
+  try {
+    const response = await axios.post('http://127.0.0.1:5000/api/addtowish', {
+      name: product.name,
+      price: product.price,
+      image: product.image,
+    });
+    console.log('Added to cart:', response.data);
+    alert(`${product.name} has been added to your wishlist!`);
+  } catch (error) {
+    console.log('Error adding to wishlist', error);
+    alert('Failed to add product to wishlist');
+  }
+};
+
   return (
     <Layout>
       <h1>Products page</h1>
@@ -52,7 +67,7 @@ const addToCart = async (product) => {
                             <p className='d-price'>₹{d.price}</p>
                             <p className='d-des'>{d.description}</p>
                             <FontAwesomeIcon className='icon' icon={faCartShopping} style={{ color: '#071739' }} onClick={() => addToCart(d)}/>
-                            <FontAwesomeIcon className='icon' icon={faHeart} style={{ color: '#071739' }} />
+                            <FontAwesomeIcon className='icon' icon={faHeart} style={{ color: '#071739' }} onClick={() => addToWishList(d)}/>
                         </div>
                     </li>
                 ))}

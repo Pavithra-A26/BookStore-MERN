@@ -1,6 +1,10 @@
+h1{
+  color: #071739;
+}
 .cart-container {
     max-width: 800px;
     margin: 0 auto;
+    color: #071739;
   }
   
   .cart-list {

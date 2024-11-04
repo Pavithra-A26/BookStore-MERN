@@ -4,6 +4,7 @@ const cors = require('cors');
 const authroutes = require('./Routes/Auth.js');
 const productRoutes = require('./Routes/Products.js');
 const cartRoutes = require('./Routes/CartRoutes.js')
+const wishRoutes = require('./Routes/WishList.js');
 
 
 require('dotenv').config();
@@ -25,6 +26,7 @@ mongoose.connect(MONGOURL).then(() => {
 app.use('/auth',authroutes);
 app.use('/api',productRoutes);
 app.use('/api',cartRoutes);
+app.use('/api',wishRoutes);
 
 
 //port

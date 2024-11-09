@@ -1,7 +1,7 @@
 import React,{ useState }  from 'react'
 import Layout from '../Layout/Layout'
 import '../Styles/register.css'
-import { useNavigate } from 'react-router-dom'; 
+import { useNavigate , Link  } from 'react-router-dom'; 
 
 const Register = () => {
 
@@ -79,7 +79,11 @@ const Register = () => {
         </div>
         <button type="submit" className="register-button">Register</button>
       </form>
+      <p className="login-prompt">
+            Already registered? <Link to="/login">Log in here</Link>.
+      </p>
     </div>
+    
     </div>
     </Layout>
   )

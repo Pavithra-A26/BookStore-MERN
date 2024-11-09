@@ -4,11 +4,9 @@ import '../Styles/footer.css'
 const Footer = () => {
   return (
     <>
-      <Footer>
         <div className="footer-bottom">
-          <p>&copy; {new Date().getFullYear()} TechToMe. All rights reserved.</p>
+          <p>&copy; 2024 TechTome. All rights reserved by Pavithra.</p>
         </div>
-      </Footer>
     </>
   )
 }

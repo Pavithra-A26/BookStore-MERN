@@ -30,7 +30,7 @@ const Login = () => {
         const data = await response.json();
         if (response.ok) {
           alert(data.message);
-          navigate('/');
+          navigate('/home');
          
         } else {
           alert(data.message || 'Login failed');
@@ -43,7 +43,7 @@ const Login = () => {
     
   return (
     <Layout>
-      <div className='register'>
+      <div className='login'>
       <div className="register-container">
       <h2>Login</h2>
       <form onSubmit={handleSubmit}>

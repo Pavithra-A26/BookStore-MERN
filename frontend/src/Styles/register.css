@@ -1,6 +1,9 @@
 /* Basic styling for register page */
 .register{
-    padding-top: 7%;
+    padding-top: 2%;
+}
+.login{
+  padding-top: 6%;
 }
 .register-container {
     width: 300px;

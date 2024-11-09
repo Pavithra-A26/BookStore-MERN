@@ -12,7 +12,7 @@ const Header = () => {
         <h2><GiBookshelf />TechTome</h2>
       </div>
       <div className="navbar-links">
-        <a href="/"><FontAwesomeIcon className='icon' icon={faHouse} style={{ color: '#fff' }} /></a>
+        <a href="/home"><FontAwesomeIcon className='icon' icon={faHouse} style={{ color: '#fff' }} /></a>
         <a href="/products">Products</a>
         <a href="/login">Login</a>
         <a href="/register">Register</a>

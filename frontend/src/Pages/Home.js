@@ -10,7 +10,7 @@ const Home = () => {
   }
   return (
     <Layout>
-      <div className='home-page'>
+      <div className='home-page' >
         <h1>Empower Your Knowledge – Dive Into the World of Technology!</h1>
         <p>Dive into a world where knowledge meets opportunity. TechTome isn’t just a book store; 
           it’s a learning hub designed for those who seek to understand, innovate, and create. 

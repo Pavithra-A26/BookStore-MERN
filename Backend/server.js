@@ -15,7 +15,8 @@ app.use(express.json());
 
 
 //database
-const MONGOURL = "mongodb://localhost:27017/bookstore";
+// const MONGOURL = "mongodb://localhost:27017/bookstore";
+const MONGOURL = process.env.MONGO_URL;
 mongoose.connect(MONGOURL).then(() => {
     console.log('Connected to MongoDB')
 })

@@ -11,7 +11,7 @@ const Cart = () => {
   useEffect(() => {
     const fetchCartItems = async () => {
       try {
-        const response = await axios.get('http://127.0.0.1:5000/api/getcart');
+        const response = await axios.get('https://bookstore-mern-capr.onrender.com/api/getcart');
         setCartItems(response.data);
 
         // Calculate total amount

@@ -10,7 +10,7 @@ const Products = () => {
 useEffect(()=>{ 
   const fetchData=async()=>{
       try{
-          const response= await axios.get("http://127.0.0.1:5000/api/products")
+          const response= await axios.get("https://bookstore-mern-capr.onrender.com/api/products")
           console.log("Responce data:",response.data)
           setProducts([...products, ...response.data])
           if (Array.isArray(response.data)) {
@@ -27,7 +27,7 @@ useEffect(()=>{
 
 const addToCart = async (product) => {
   try {
-    const response = await axios.post('http://127.0.0.1:5000/api/addtocart', {
+    const response = await axios.post('https://bookstore-mern-capr.onrender.com/api/addtocart', {
       name: product.name,
       price: product.price,
       image: product.image,
@@ -42,7 +42,7 @@ const addToCart = async (product) => {
 
 const addToWishList = async (product) => {
   try {
-    const response = await axios.post('http://127.0.0.1:5000/api/addtowish', {
+    const response = await axios.post('https://bookstore-mern-capr.onrender.com/api/addtowish', {
       name: product.name,
       price: product.price,
       image: product.image,

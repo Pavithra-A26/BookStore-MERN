@@ -12,7 +12,7 @@ const Wishlist = () => {
 useEffect(()=>{ 
   const fetchData=async()=>{
       try{
-          const response= await axios.get("https://bookstore-mern-capr.onrender.com/api/getwishlist")
+          const response= await axios.get("https://bookstore-production-ed95.up.railway.app/api/getwishlist")
           console.log("Responce data:",response.data)
           setProducts([...products, ...response.data])
           if (Array.isArray(response.data)) {
@@ -29,7 +29,7 @@ useEffect(()=>{
 
 const addToCart = async (product) => {
   try {
-    const response = await axios.post('https://bookstore-mern-capr.onrender.com/api/addtocart', {
+    const response = await axios.post('https://bookstore-production-ed95.up.railway.app/api/addtocart', {
       name: product.name,
       price: product.price,
       image: product.image,
@@ -53,7 +53,7 @@ const addToCart = async (product) => {
                             <h2 className='d-name'>{d.name}</h2>
                             <p className='d-price'>₹{d.price}</p>
                             <FontAwesomeIcon className='icon' icon={faCartShopping} style={{ color: '#071739' }} onClick={() => addToCart(d)}/>
-                        </div>
+                        </div> 
                     </li>
                 ))}
             </div>

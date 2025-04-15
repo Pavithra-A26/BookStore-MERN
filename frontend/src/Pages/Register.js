@@ -21,7 +21,7 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('https://bookstore-mern-capr.onrender.com/auth/register', {
+      const response = await fetch('https://bookstore-production-ed95.up.railway.app/auth/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

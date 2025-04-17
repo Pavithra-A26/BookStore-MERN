@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Layout from '../Layout/Layout';
-import '../Styles/cart.css'
+import '../Styles/cart.css';
 
 const Cart = () => {
 
@@ -9,20 +9,31 @@ const Cart = () => {
   const [totalAmount, setTotalAmount] = useState(0);
 
   useEffect(() => {
-    const fetchCartItems = async () => {
-      try {
-        const response = await axios.get('https://bookstore-production-ed95.up.railway.app/api/getcart');
-        setCartItems(response.data);
-
-        // Calculate total amount
-        const total = response.data.reduce((sum, item) => sum + item.price, 0);
-        setTotalAmount(total);
-      } catch (error) {
-        console.log('Error fetching cart items:', error);
-      }
-    };
     fetchCartItems();
   }, []);
+
+  const fetchCartItems = async () => {
+    try {
+      const response = await axios.get('https://bookstore-production-ed95.up.railway.app/api/getcart');
+      setCartItems(response.data);
+
+      // Calculate total amount
+      const total = response.data.reduce((sum, item) => sum + item.price, 0);
+      setTotalAmount(total);
+    } catch (error) {
+      console.log('Error fetching cart items:', error);
+    }
+  };
+
+  const handleDelete = async (id) => {
+    try {
+      await axios.delete(`https://bookstore-production-ed95.up.railway.app/api/deletecart/${id}`);
+      // After successful delete, fetch updated cart items
+      fetchCartItems();
+    } catch (error) {
+      console.error('Error deleting cart item:', error);
+    }
+  };
 
   return (
     <Layout>
@@ -36,6 +47,12 @@ const Cart = () => {
                 <div className="cart-item-details">
                   <h2 className="cart-item-name">Name : {item.name}</h2>
                   <p className="cart-item-price">Price : ₹{item.price}</p>
+                  <button 
+                    className="delete-button" 
+                    onClick={() => handleDelete(item._id)}
+                  >
+                    Delete
+                  </button>
                 </div>
               </li>
             ))}
@@ -48,7 +65,7 @@ const Cart = () => {
         </div>
       </div>
     </Layout>
-  )
-}
+  );
+};
 
-export default Cart
+export default Cart;

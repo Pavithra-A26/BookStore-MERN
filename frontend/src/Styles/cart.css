@@ -56,3 +56,18 @@ h1{
     margin-top: 20px;
   }
   
+  .delete-button {
+    background-color: #ff4d4f;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    margin-top: 5px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  
+  .delete-button:hover {
+    background-color: #ff1a1a;
+  }
+  
